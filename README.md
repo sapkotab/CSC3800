@@ -1,2 +1,2 @@
 # CSCI-3800-HW1
-#postman pasrsing and chain request
+#postman pasring and chain request
