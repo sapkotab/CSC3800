@@ -1,0 +1,38 @@
+Alt-Svc
+-Custom header.
+
+Cache-Control
+-Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds.
+
+Content-Length
+-The length of the response body in octets (8-bit bytes).
+
+Content-Type
+-The mime type of this content.
+
+Date
+-The date and time that the message was sent.
+
+ETag
+-An identifier for a specific version of a resource, often a message digest.
+
+Expires
+-Gives the date/time after which the response is considered stale.
+
+Server
+-A name for the server.
+
+Vary
+-Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.
+
+Vary
+-Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.
+
+X-Content-Type-Options
+-The only defined value, "nosniff", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type.
+
+X-Frame-Options
+-Clickjacking protection: "deny" - no rendering within a frame, "sameorigin" - no rendering if origin mismatch
+
+X-XSS-Protection
+-Cross-site scripting (XSS) filter
