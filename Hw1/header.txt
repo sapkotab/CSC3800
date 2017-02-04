@@ -1,38 +1,48 @@
-Alt-Svc
--Custom header.
 
-Cache-Control
+
+Alt-Svc →quic=":443"; ma=2592000; v="35,34"
+-Custom header. it allows the servers to give authority to another server(or client if support it) that it is authorized to use resources in separate network
+location. 
+
+Cache-Control →private, max-age=0, must-revalidate, no-transform
 -Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds.
+private means it it intended for single use
+max-age tell how long it will be considered as fresh
+must-revalidate means it should be validated before use and expired are shouldn’t be used
+no-transform means content shouldn’t be modified.
 
-Content-Length
--The length of the response body in octets (8-bit bytes).
+Content-Length →35434
+-The length of the response body in bytes.
 
-Content-Type
--The mime type of this content.
+Content-Type →application/json; charset=UTF-8
+-The mime type of this content means it is json
+charset is character encoding standard.
 
-Date
+Date →Sat, 04 Feb 2017 18:07:47 GMT
 -The date and time that the message was sent.
+it is in GMT
 
-ETag
+ETag →"vFp1TYDMppbWxVi0Wgw_upD83cI/5RRZ6VDDjzfz3N1tdYQ3U9X0O2c"
 -An identifier for a specific version of a resource, often a message digest.
+it helps cacheing efficiently. if it changed it prevent simultaneous change in resources called “mid air collision”
 
-Expires
+Expires →Sat, 04 Feb 2017 18:07:47 GMT
 -Gives the date/time after which the response is considered stale.
 
-Server
--A name for the server.
+Server →GSE
+-A name for the server. it tell software used by server to handle the requests
 
-Vary
+Vary →Origin
 -Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.
 
-Vary
+Vary →X-Origin
 -Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.
 
-X-Content-Type-Options
+X-Content-Type-Options →nosniff
 -The only defined value, "nosniff", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type.
 
-X-Frame-Options
+X-Frame-Options →SAMEORIGIN
 -Clickjacking protection: "deny" - no rendering within a frame, "sameorigin" - no rendering if origin mismatch
 
-X-XSS-Protection
--Cross-site scripting (XSS) filter
+X-XSS-Protection →1; mode=bloc
+-Cross-site scripting (XSS) filter, it is not that important on modern day browser because of strong content security policy.e.g avoiding inline javascript 
