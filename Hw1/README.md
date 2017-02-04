@@ -1,2 +1,2 @@
-# CSCI-3800-HW1
+# CSC3800-HW1
 #postman parsing and chain request
