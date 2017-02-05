@@ -11,22 +11,22 @@ max-age tell how long it will be considered as fresh
 must-revalidate means it should be validated before use and expired are shouldn’t be used
 no-transform means content shouldn’t be modified.
 
-Content-Length →35434
+Content-Length →35331
 -The length of the response body in bytes.
 
 Content-Type →application/json; charset=UTF-8
 -The mime type of this content means it is json
 charset is character encoding standard.
 
-Date →Sat, 04 Feb 2017 18:07:47 GMT
+Date →Sun, 05 Feb 2017 06:56:28 GMT
 -The date and time that the message was sent.
 it is in GMT
 
-ETag →"vFp1TYDMppbWxVi0Wgw_upD83cI/5RRZ6VDDjzfz3N1tdYQ3U9X0O2c"
+ETag →"vFp1TYDMppbWxVi0Wgw_upD83cI/Kvst3WkhenSklw3K8MtUllZrPi0"
 -An identifier for a specific version of a resource, often a message digest.
 it helps cacheing efficiently. if it changed it prevent simultaneous change in resources called “mid air collision”
 
-Expires →Sat, 04 Feb 2017 18:07:47 GMT
+Expires →Sun, 05 Feb 2017 06:56:28 GMT
 -Gives the date/time after which the response is considered stale.
 
 Server →GSE
