@@ -1,0 +1,139 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: student record
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /gets:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: student
+    get:
+      operationId: getEm
+      description: it gets the student lists from record
+      # used as the method name of the controller
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetStudentListResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /posts:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: student
+    post:
+      operationId: postIt
+      description: adds new student in record
+      # student info to be stored
+      parameters:
+        - name: name
+          description: student description
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /puts:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: student
+    put:
+      operationId: putIt
+      description: update a student record
+      # define the parameters
+      parameters:
+        - name: name
+          description: student description
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /deletes:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: student
+    delete:
+      operationId: delIt
+      description: update a student record
+      # define the parameters
+      parameters:
+        - name: name
+          description: student description
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/studentIdResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  GetStudentListResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: shows success
+  studentIdResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: id of student
+      name:
+        type: string
+        description: name of student
+      age:
+        type: number
+        description: student age
+    required:
+      - id
+      - name         
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message: 
+        type: string
+        description: http method is not supported
+
